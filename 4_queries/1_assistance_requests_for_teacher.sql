@@ -4,10 +4,10 @@ Since this query needs to work with any specific teacher name,
 use 'Waylon Boehm' for the teacher's name here.*/
 
 SELECT count(assistance_requests.*) as  total_assistances, 
-teachers.name as name
+teachers.name
 FROM assistance_requests
 JOIN teachers ON teachers.id = teacher_id
-WHERE teachers.name = 'Waylon Boehm'
+WHERE name = 'Waylon Boehm'
 GROUP BY teachers.name;
 
 
