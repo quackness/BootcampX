@@ -37,14 +37,13 @@ LIMIT 5;
 //A query to get a list of students and a cohort name 
 
 pool.query(`
-SELECT students.id, students.name, cohorts.name AS cohort_name
+SELECT students.id as student_id, students.name as name, cohorts.name AS cohort_name
 FROM students
 JOIN cohorts ON cohort_id = cohorts.id
 LIMIT 5;
 `)
 .then(res => {
   res.rows.forEach(user => {
-    console.log(user.cohort_name)
-    console.log(`${user.name} has an id of ${user.id} and was in the ${user.cohort_name} cohort`);
+    console.log(`${user.name} has an id of ${user.student_id} and was in the ${user.cohort_name} cohort`);
   })
 });
